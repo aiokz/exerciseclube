@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <ctype.h>
+
+void main(){
+    setlocale (LC_ALL, "");
+    int i, id, tt, ttID = 0, h = 0, m = 0, IDh = 0, IDm = 0;
+    float medID_h, medID_m;
+    char sexo;
+    
+    printf("Qual o sexo?(M/F):\n");
+    scanf(" %c", &sexo);
+    sexo = toupper (sexo);
+    
+  do{
+        if(sexo == 'M')
+	{
+        h++;
+        printf("Idade?:\n ");
+        scanf("%d", &id);
+        IDh += id;
+    }   
+        else if(sexo == 'F'){
+            m++;
+            printf("Idade?:\n");
+            scanf("%d", &id);
+            IDm += id;
+        }
+        
+        printf("Qual o sexo?(M/F):\n");
+        scanf(" %c, &sexo");
+        sexo = toupper (sexo);
+    }
+  while((sexo == 'M') || (sexo == 'F'));
+    tt= h + m;
+    medID_h = (IDh / h);
+    medID_m = (IDm / m);
+        
+  printf("\nAlternadiva Invalida!\n");
+  printf("\nO total de Socios e: %d", tt);
+  printf("\nO total de Homens sao: %d", h);
+  printf("\nO total de Mulheres sao: %d", m);
+  printf("\nA idade media dos homens e: %.2f", medID_h);
+  printf("\nA idade media das mulheres e: %.2f", medID_m); 
+}
+
